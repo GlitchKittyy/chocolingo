@@ -16,9 +16,9 @@ function mode() {
     element.classList.toggle("dark-mode");
     var huidigeFoto = document.getElementById('logoPic').src;
     if (huidigeFoto.endsWith('logo.png')) {
-        document.getElementById('logoPic').src = 'logoW.png';
+        document.getElementById('logoPic').src = 'img/logoW.png';
     } else {
-        document.getElementById('logoPic').src = 'logo.png';
+        document.getElementById('logoPic').src = 'img/logo.png';
     }
 }
 
