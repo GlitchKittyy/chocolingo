@@ -1,35 +1,61 @@
-const dynamicText = document.querySelector("h1 span.dynamic-text");
-const words = ["Leuk", "Lekker","In Januari 2023","Goede Prijzen"];
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }/* else {
+            entry.target.classList.remove('show');
+        }*/
+    });
+});
 
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+const hiddenElements = document.querySelectorAll('.hidden, .hidden2, .hidden3, .read');
+hiddenElements.forEach((el) => observer.observe(el));
 
-const typeEffect = () => {
-    const currentWord = words[wordIndex];
-    const currentChar = currentWord.substring(0, charIndex);
-    dynamicText.textContent = currentChar;
-
-    dynamicText.className = '';
-    dynamicText.classList.add(`word${wordIndex + 1}`);
-    dynamicText.classList.add("stop-blinking");
-
-    if (!isDeleting && charIndex < currentWord.length) {
-        charIndex++;
-        setTimeout(typeEffect, 200);
-    } else if (isDeleting && charIndex > 0) {
-        charIndex--;
-        setTimeout(typeEffect, 100);
+function mode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    var huidigeFoto = document.getElementById('logoPic').src;
+    if (huidigeFoto.endsWith('logo.png')) {
+        document.getElementById('logoPic').src = 'logoW.png';
     } else {
-        isDeleting = !isDeleting;
-        dynamicText.classList.remove("stop-blinking");
-        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
-
-      
-        setTimeout(() => {
-            typeEffect();
-        }, 1200);
+        document.getElementById('logoPic').src = 'logo.png';
     }
 }
 
-typeEffect();
+
+mode();
+
+function scrollUp() {
+    var targetPosition = 0;
+    window.scrollTo({
+        top: targetPosition,
+    });
+}
+scrollUp();
+
+window.onload = function() {
+    setTimeout(function() {
+        scrollUp();
+    }, 100);
+};
+
+function scrollDown(targetPosition) {
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
+}
+
+function redirectToDemo() {
+    window.location.href = 'lingo.html';
+}
+
+window.addEventListener('load', function() {
+    var demoButton = document.getElementById('demoButton');
+
+    if (window.innerWidth <= 768) {
+        demoButton.textContent = 'Apparaat niet ondersteund';
+        demoButton.disabled = true;
+        demoButton.classList.add('disabled');
+    }
+});
