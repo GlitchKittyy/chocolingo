@@ -4,10 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ChocoLingo, 6 maart op Melanchthon Berkroden, lees meer info"/>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="keywords" content="chocolingo, Chocolingo, berkroden, Berkroden">
-
     <title>Chocolingo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="card.css">
@@ -18,39 +14,53 @@
 
 </head>
 
+<button class="darkknop" onclick="mode()">&#9965;</button>
 <body>
-    <button class="darkknop" onclick="mode()">&#9965;</button>
+    <nav>
+        <ul>
+            <li onclick="scrollDown(0)">Home</li>
+            <li onclick="document.getElementById('over').scrollIntoView({ behavior: 'smooth' });">Over</li>
+            <li onclick="document.getElementById('ons').scrollIntoView({ behavior: 'smooth' });">Ons</li>
+            <li onclick="document.getElementById('second').scrollIntoView({ behavior: 'smooth' });">Producten</li>
+            <li onclick="document.getElementById('contactInfo').scrollIntoView({ behavior: 'smooth' });">Contact</li>
+        </ul>
+    </nav>
     <section class="hidden2">
         <img id="logoPic" src="img/logo.png" alt="logo">
         <h3>6 Maart</h3>
         <button class="read" onclick="scrollDown(400)">Lees meer</button>
     </section>
-    <section class="hidden" style="transition-delay: 250ms;">
+    <br><br>
+    <section class="hidden" style="transition-delay: 250ms;" id="over">
         <h2>Over Ons</h1>
             <p style="margin-left: 10%;margin-right: 10%;">Hallo, Chocolingo hier, wij zijn een klein bedrijf gericht op
                 het verkopen van chocolade met een
                 lingo invoeging erin. Wij verkopen aparte repen chocolade maar ook speltokens. Druk <span
                 style="text-decoration: underline;" onclick="document.getElementById('second').scrollIntoView({ behavior: 'smooth' });">hier</span> om daar meer over te lezen.
             </p>
-            <p>${video}</p>
+            <iframe id="video" src="https://www.youtube.com/embed/xmCBF661gmE?si=AolGghLGfaYEs9wI&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </section>
+    <br><br>
     <section class="hidden">
         <h1>Wie zijn wij?</h1>
-        <section id="ons">
+        <section id="ons" style="flex-direction: column; margin-left: 5%; margin-right: 5%;">
             <section class="hidden" style="transition-delay: 100ms;">
-                <img src="img/example.png" style="height: 90px;">
+                <img src="img/yanick.jpeg" style="height: 90px;border-radius: 10px;">
                 <h2>Yanick</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum mollitia saepe qui obcaecati ipsa quibusdam? At, dolore repellat, quaerat molestiae blanditiis nobis rem laborum aperiam recusandae sint eum, id doloremque?</p>
+                <h3>Voorzitter</h3>
+                <p>Yanick heeft de website INCL software voor het lingospel zelf gemaakt en heeft voornamelijk met de promotie campange gewerkt</p>
             </section>
             <section class="hidden" style="transition-delay: 100ms;">
-                <img src="img/example.png" style="height: 90px;">
+                <img src="img/cas.jpeg" style="height: 90px;border-radius: 10px;">
                 <h2>Cas</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia officia autem enim aliquam quod cum impedit delectus, nemo rem nisi amet. Doloremque voluptatum at animi maxime pariatur. Eligendi, voluptas ipsum?</p>
+                <h3>Mede-Voorzitter</h3>
+                <p>Cas heeft de hosting van de website gedaan en vooral met <span style="font-weight: bold;">Ference</span> de chocolade repen en prijzen gemaakt</p>
             </section>
             <section class="hidden" style="transition-delay: 100ms;">
-                <img src="img/example.png" style="height: 90px;">
+                <img src="img/ference.jpeg" style="height: 90px; border-radius: 10px;">
                 <h2>Ference</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia officia autem enim aliquam quod cum impedit delectus, nemo rem nisi amet. Doloremque voluptatum at animi maxime pariatur. Eligendi, voluptas ipsum?</p>
+                <h3>Product Leider</h3>
+                <p>Ference heeft de chocolade repen gemaakt met <span style="font-weight: bold;">Cas</span> de chocolade gemaakt</p>
             </section>
         </section>
     </section>
@@ -148,7 +158,6 @@
                     <div class="option">
                         <ul>
                             <li> <i class="fa fa-check" aria-hidden="true"></i> 1x Small Bar </li>
-                            <li style="font-weight: 900;font-size: 25px;"> <i class="fa fa-check" aria-hidden="true"></i> Aanbevolen </li>
                         </ul>
                     </div>
                 </div>
@@ -167,6 +176,7 @@
                     <div class="option">
                         <ul>
                             <li> <i class="fa fa-check" aria-hidden="true"></i> 1x Medium Bar </li>
+                            <li style="font-weight: 900;font-size: 25px;"> <i class="fa fa-check" aria-hidden="true"></i> Aanbevolen </li>
                         </ul>
                     </div>
                 </div>
@@ -191,8 +201,25 @@
                 </div>
             </div>
         </div>
-
     </section>
+    <section class="hidden2">
+        <h2>Hoe werkt het?</h2>
+        <p style="margin: 0 5% 0 5%;">Als je een lingo package koopt heb je gegarandeert een small-bar (naast de deluxe package). Je speelt dan ons lingo spel en mocht je dat winnen ga je van small naar medium en van medium naar large (het spel wordt steeds moeilijker).
+            Je ruilt makkelijk gezegd je bar steeds om naar een grotere maat. Dit is alleen in een lingo package!
+        </p>
+    </section>
+    <section class="hidden" id="contactInfo">
+        <h1>Contact</h1>
+        <p>Yanick: ydklerk@melanchthon.nl</p>
+        <p>Cas: cblokhuijsen@melanchthon.nl</p>
+        <p>Ference: ffontijn@melanchthon.nl</p>
+    </section>
+    <footer class="footer" style="margin-left: -5%;">
+        <p>&copy;2024 Chocolingo | Alle rechten voorbehouden</p>
+      </footer>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
 </body>
 
 </html>
